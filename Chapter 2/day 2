@@ -1,0 +1,46 @@
+Explain why we wouldn't call changeGreeting in a script.
+  Because we can only "read" with the script
+
+What does the AuthAccount mean in the prepare phase of the transaction?
+  It means that transaction will be signed to access for AuthAccount objects like storage and keys.  
+
+What is the difference between the prepare phase and the execute phase in the transaction?
+  In the execute phase we can not access Authaccount objects, it is not necessary but recommended.
+
+Add two new things inside your contract:
+A variable named myNumber that has type Int (set it to 0 when the contract is deployed)
+A function named updateMyNumber that takes in a new number named newNumber as a parameter that has type Int and updates myNumber to be newNumber
+ 
+   pub contract HelloWorld {
+
+        pub var myNumber: Int
+
+        init() {
+            self.myNumber = 0
+        }
+
+        pub fun changeNumber(newNumber: Int) {
+            self.myNumber = newNumber
+        }
+    }
+
+Add a script that reads myNumber from the contract
+
+    import HelloWorld from 0x01
+
+    pub fun main(): Int {
+      return HelloWorld.myNumber
+    }
+
+Add a transaction that takes in a parameter named myNewNumber and passes it into the updateMyNumber function. Verify that your number changed by running the script again.
+
+    import HelloWorld from 0x01
+
+    transaction(myNewNumber: Int) {
+
+      prepare(signer: AuthAccount) {}
+
+      execute {
+        HelloWorld.changeNumber(newNumber: myNewNumber)
+      }
+    }
