@@ -1,0 +1,26 @@
+1. In a script, initialize an array (that has length == 3) of your favourite people, represented as Strings, and log it.
+
+2. In a script, initialize a dictionary that maps the Strings Facebook, Instagram, Twitter, YouTube, Reddit, and LinkedIn to a UInt64 that represents the order in which you
+use them from most to least. For example, YouTube --> 1, Reddit --> 2, etc. If you've never used one before, map it to 0!
+
+  pub fun main() {
+
+    let people: [String] = ["Mom", "Me", "Jacob Tucker"]
+    log(people)
+
+    let map: {String: UInt64} = {"Reddit": 1, "LinkedIn": 1, "Facebook": 1, "Instagram": 2,
+                                "Twitter": 2, "Youtube": 5}
+  }
+  
+3. Explain what the force unwrap operator ! does, with an example different from the one I showed you (you can just change the type).
+  Operator ! unwraps or, in other words, opens a cointainer where can be "nil" or "something", so I don't know yet where it can be useful, but I think that 
+  it may be helpful in debugging.
+
+4. Using this picture below, explain...
+What the error message means
+  It means, that function result is not "String" type, but should be, because you declared it 
+Why we're getting this error
+  Because String in Dictionary is wrapped Objective String?
+How to fix it
+  Unwrap String? with ! Operator:
+    return thing[0x03]!
