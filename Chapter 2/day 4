@@ -1,0 +1,53 @@
+Link to Playgorund: https://play.onflow.org/a2f92c58-5c5a-430c-ab17-6aa7c634e538?type=script&id=df979e79-c445-495b-a7f3-c3fa0ad76b16&storage=none
+
+Deploy a new contract that has a Struct of your choosing inside of it (must be different than Profile).
+Create a dictionary or array that contains the Struct you defined.
+Create a function to add to that array/dictionary.
+    pub contract MyDates {
+
+        pub var dates: {Address: Date}
+
+        pub struct Date {
+
+            pub let account: Address
+            pub let place: String
+            pub let result: Bool
+
+            init(_account: Address, _place: String, _result: Bool) {
+                self.account = _account
+                self.place = _place
+                self.result = _result
+            }
+        }
+
+        pub fun addDate(account: Address, place: String, result: Bool) {
+            let newDate = Date(_account: account, _place: place, _result: result)
+            self.dates[account] = newDate
+        }
+
+        init() {
+            self.dates = {}
+        }
+    }
+
+
+Add a transaction to call that function in step 3.
+    import MyDates from 0x01
+
+    transaction(account: Address, place: String, result: Bool) {
+
+      prepare(signer: AuthAccount) {}
+
+      execute {
+        MyDates.addDate(account: account, place: place, result: result)
+      }
+    }
+
+
+Add a script to read the Struct you defined.
+    import MyDates from 0x01
+
+    pub fun main(account: Address): MyDates.Date? {
+
+      return MyDates.dates[account]
+    }
