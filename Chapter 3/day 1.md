@@ -16,7 +16,7 @@
 
 *5. What is the type of the resource below?*
 
-    AnyResource
+    @Jacob
     
 *6. Let's play the "I Spy" game from when we were kids. I Spy 4 things wrong with this code. Please fix them.*
 
