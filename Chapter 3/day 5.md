@@ -46,7 +46,7 @@
             pub var e: Int
 
             pub fun resourceFunc() {
-                /**************/  // VAR'S "a" "b" "c" CAN BE READ/WRITE
+                /**************/  // VAR'S "a" CAN BE READ/WRITE, "b" "c" CAN BE READ
                 /*** AREA 2 ***/  // FUN'S "publicFunc" "contractFunc" CAN BE CALLED
                 /**************/
             }
@@ -61,7 +61,7 @@
         }
 
         pub fun questsAreFun() {
-            /**************/    // VAR'S  "a" "b" "c" CAN BE READ/WRITE
+            /**************/    // VAR'S "a" CAN BE READ/WRITE, "b" "c" CAN BE READ
             /*** AREA 3 ****/   // FUN'S "publicFunc" "contractFunc" CAN BE CALLED
             /**************/
         }
@@ -76,7 +76,7 @@ Script:
     import SomeContract from 0x01
 
     pub fun main() {
-      /**************/    // VAR's "a" CAN BE READ/WRITE, "b" CAN BE READ
+      /**************/    // VAR's "a" "b" CAN BE READ
       /*** AREA 4 ***/    // FUN "publicFunc" CAN BE CALLED
       /**************/
     }
